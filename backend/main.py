@@ -3,7 +3,7 @@ from fastapi import FastAPI, File, UploadFile
 from fastapi.middleware.cors import CORSMiddleware
 
 from backend.models import Diff
-from backend.services.word_diff import extract_word_diff
+from backend.services.word_diff_extractor import WordDiffExtractor
 
 debugpy.listen(("0.0.0.0", 5678))
 print("Waiting for debugger attach...")
@@ -27,9 +27,10 @@ async def root():
 
 
 @app.post("/diff/word", response_model=list[Diff])
-async def get_diff_word(
+def get_diff_word(
     file1: UploadFile = File(...),
     file2: UploadFile = File(...)
 ):
-    diffs = await extract_word_diff(file1, file2)
+    extractor = WordDiffExtractor(file1, file2)
+    diffs = extractor.extract()
     return diffs
