@@ -1,0 +1,8 @@
+fastapi
+isort
+black
+uvicorn[standard]
+python-multipart
+PyMuPDF
+mammoth
+debugpy
