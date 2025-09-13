@@ -1,4 +1,4 @@
-# DocumentDiffViewer
+# Document Diff Viewer
 
 FastAPIベースのドキュメント差分抽出ツールです。
 
