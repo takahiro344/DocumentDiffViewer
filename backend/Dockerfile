@@ -2,13 +2,11 @@ FROM python:3.11.7-slim-bullseye
 
 USER root
 
-RUN apt-get update
-RUN apt-get upgrade -y
-RUN apt-get install -y build-essential python3-dev
-RUN python -m pip install --upgrade pip setuptools wheel
-RUN rm -rf /var/lib/apt/lists/*
-
-RUN apt-get update && apt-get install -y curl net-tools lsof
+RUN apt-get update && \
+    apt-get upgrade -y && \
+    apt-get install -y build-essential python3-dev curl net-tools lsof && \
+    python -m pip install --upgrade pip setuptools wheel && \
+    rm -rf /var/lib/apt/lists/*
 
 WORKDIR /workspaces/DocumentDiffViewer
 COPY backend/requirements.txt .
