@@ -3,15 +3,19 @@
     "dockerComposeFile": [
         "../docker-compose.yml"
     ],
-    "service": "backend",
+    "service": "app",
     "workspaceFolder": "/workspaces/DocumentDiffViewer",
     "mounts": [
         "source=${localWorkspaceFolder}/data,target=/app/data,type=bind"
     ],
     "overrideCommand": false,
+    "postCreateCommand": "cd ./frontend && npm install",
     "customizations": {
         "vscode": {
             "extensions": [
+                "dbaeumer.vscode-eslint", // ESLint
+                "esbenp.prettier-vscode", // Prettier - コード整形
+                "dsznajder.es7-react-js-snippets", // React用スニペット
                 "ms-python.python",
                 "ms-python.debugpy",
                 "ms-python.vscode-pylance",
