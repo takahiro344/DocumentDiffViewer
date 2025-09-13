@@ -13,7 +13,7 @@
     "mounts": [
         "source=${localWorkspaceFolder}/data,target=/app/data,type=bind"
     ],
-    "postCreateCommand": "python3 -Xfrozen_modules=off -m uvicorn main:app --host 0.0.0.0 --port 8000 --reload --workers=1",
+    "postCreateCommand": "python3 -Xfrozen_modules=off -m uvicorn backend.main:app --host 0.0.0.0 --port 8000 --reload --workers=1",
     "customizations": {
         "vscode": {
             "extensions": [

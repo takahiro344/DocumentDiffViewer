@@ -11,7 +11,7 @@ RUN rm -rf /var/lib/apt/lists/*
 RUN apt-get update && apt-get install -y curl net-tools lsof
 
 WORKDIR /workspaces/DocumentDiffViewer
-COPY requirements.txt .
+COPY backend/requirements.txt .
 RUN pip install -r requirements.txt
 COPY . .
 

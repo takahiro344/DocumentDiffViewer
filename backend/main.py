@@ -2,8 +2,8 @@ import debugpy
 from fastapi import FastAPI, File, UploadFile
 from fastapi.middleware.cors import CORSMiddleware
 
-from models.diff import Diff
-from word_diff import extract_word_diff
+from backend.models import Diff
+from backend.services.word_diff import extract_word_diff
 
 debugpy.listen(("0.0.0.0", 5678))
 print("Waiting for debugger attach...")

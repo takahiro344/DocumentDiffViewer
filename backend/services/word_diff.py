@@ -4,7 +4,7 @@ from io import BytesIO
 import mammoth
 from fastapi import HTTPException, UploadFile
 
-from models.diff import Diff
+from backend.models.diff import Diff
 
 
 async def extract_word_diff(
