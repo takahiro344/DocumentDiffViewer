@@ -1,0 +1,26 @@
+services:
+  backend:
+    container_name: document-diff-viewer-backend
+    build:
+      context: .
+      dockerfile: ./backend/Dockerfile
+    ports:
+      - "8000:8000"  # For FastAPI
+      - "5678:5678"  # For debugpy
+    volumes:
+      - ./backend:/workspaces/DocumentDiffViewer/backend
+      - .vscode:/workspaces/DocumentDiffViewer/.vscode
+    environment:
+      - PYTHONPATH=/workspaces/DocumentDiffViewer
+    command: python3 -Xfrozen_modules=off -m uvicorn backend.main:app --host 0.0.0.0 --port 8000 --reload --workers=1
+
+
+  #frontend:
+  #  build: ./frontend
+  #  ports:
+  #    - "3000:5173"  # For Vite dev server
+  #  volumes:
+  #    - ./frontend:/workspaces/DocumentDiffViewer/frontend
+  #    - .vscode:/workspaces/DocumentDiffViewer/.vscode
+  #  working_dir: /workspaces/DocumentDiffViewer/frontend
+  #  command: npm run dev

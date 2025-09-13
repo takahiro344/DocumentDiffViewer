@@ -13,7 +13,6 @@ RUN apt-get update && apt-get install -y curl net-tools lsof
 WORKDIR /workspaces/DocumentDiffViewer
 COPY backend/requirements.txt .
 RUN pip install -r requirements.txt
-COPY . .
 
 EXPOSE 8000
 EXPOSE 5678
