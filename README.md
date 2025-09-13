@@ -1,3 +1,7 @@
+# DocumentDiffViewer
+
+FastAPIベースのドキュメント差分抽出ツールです。
+
 ## 技術スタック
 
 - 🐍 Python 3.11+
